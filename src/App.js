@@ -45,13 +45,14 @@ function App() {
   return (
     <div>
       <div className="header">
-  <div className="logo">
-    <GiCookingPot className="icon" />
-    <span>
-      <span className="highlight">Cook</span>Mate
-    </span>
-  </div>
-</div>
+        <div className="logo">
+          <GiCookingPot className="icon" />
+          <span>
+            <span className="highlight">Cook</span>Mate
+          </span>
+        </div>
+      </div>
+
       {/* SEARCH */}
       <div className="search-box">
         <input
@@ -80,10 +81,7 @@ function App() {
           </button>
         </div>
 
-        <button
-          onClick={handleSearch}
-          className="btn primary search-btn"
-        >
+        <button onClick={handleSearch} className="btn primary search-btn">
           Search
         </button>
       </div>
@@ -91,7 +89,7 @@ function App() {
       {/* LOADING */}
       {loading && <div className="loader">🍜 Cooking...</div>}
 
-      {/* GRID (MOBILE FIXED) */}
+      {/* GRID */}
       <div
         style={{
           display: "grid",
@@ -126,7 +124,13 @@ function App() {
             <button onClick={() => setSelectedRecipe(null)}>Close</button>
 
             <h2>{selectedRecipe.strMeal}</h2>
-            <img src={selectedRecipe.strMealThumb} width="100%" />
+
+            {/* 🔥 FIXED HERE */}
+            <img
+              src={selectedRecipe.strMealThumb}
+              alt={selectedRecipe.strMeal}
+              width="100%"
+            />
 
             <h3>Ingredients</h3>
             <ul>
