@@ -61,7 +61,7 @@ body {
   opacity: 1;
 }
 
-/* Active button */
+/* Active */
 .active {
   opacity: 1;
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
@@ -87,7 +87,6 @@ body {
 
 /* Cards */
 .card {
-  width: 260px;
   background: white;
   border-radius: 20px;
   overflow: hidden;
@@ -138,4 +137,39 @@ body {
   margin-top: 20px;
   font-size: 18px;
   color: #555;
+}
+
+/* 📱 MOBILE FIX */
+@media (max-width: 600px) {
+  .search-box {
+    width: 90%;
+    padding: 15px;
+  }
+
+  .header {
+    font-size: 28px;
+  }
+}
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.icon {
+  font-size: 40px;
+  color: #ff6a00;
+  animation: float 2s ease-in-out infinite;
+}
+
+.highlight {
+  color: #ff6a00;
+  font-weight: 800;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
 }

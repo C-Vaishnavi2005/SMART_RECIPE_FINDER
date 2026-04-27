@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { GiCookingPot } from "react-icons/gi";
 
 function App() {
   const [search, setSearch] = useState("");
@@ -31,12 +32,10 @@ function App() {
     setSelectedRecipe(data.meals[0]);
   };
 
-  // ESC key close
+  // ESC close
   useEffect(() => {
     const handleEsc = (e) => {
-      if (e.key === "Escape") {
-        setSelectedRecipe(null);
-      }
+      if (e.key === "Escape") setSelectedRecipe(null);
     };
 
     window.addEventListener("keydown", handleEsc);
@@ -45,8 +44,14 @@ function App() {
 
   return (
     <div>
-      <div className="header">🍳 Smart Recipe Finder</div>
-
+      <div className="header">
+  <div className="logo">
+    <GiCookingPot className="icon" />
+    <span>
+      <span className="highlight">Cook</span>Mate
+    </span>
+  </div>
+</div>
       {/* SEARCH */}
       <div className="search-box">
         <input
@@ -86,14 +91,13 @@ function App() {
       {/* LOADING */}
       {loading && <div className="loader">🍜 Cooking...</div>}
 
-      {/* RECIPES */}
+      {/* GRID (MOBILE FIXED) */}
       <div
         style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "center",
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
           gap: "20px",
-          marginTop: "30px",
+          padding: "20px",
         }}
       >
         {recipes.map((meal) => (
